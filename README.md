@@ -30,8 +30,10 @@ skills/                              ← 这就是当前仓库
 │   ├── scripts/                     ← 可选：脚本
 │   ├── references/                  ← 可选：补充文档
 │   └── assets/                      ← 可选：模板、图片
-├── web-to-markdown/                 ← skill 2
-│   └── SKILL.md
+├── web-to-markdown/                 ← skill 2：网页文章落地为标准 md
+│   ├── SKILL.md
+│   ├── scripts/
+│   └── references/
 └── mihomo-proxy-setup/              ← skill 3
     └── SKILL.md
 ```
@@ -206,7 +208,7 @@ npx skills update
 
 已入库的 skill 见下表。下一步建议：
 
-1. 继续把常用 skill（例如 `web-to-markdown`、`mihomo-proxy-setup`）各复制成独立文件夹推进来。
+1. 继续把常用 skill（例如 `mihomo-proxy-setup`）各复制成独立文件夹推进来。
 2. 每加一个 skill，就在本 README 的「仓库里已有的 skill」表格里补一行，并在 `test/` 下建同名测试位。
 3. 不需要自己写安装脚本，`npx skills` 已经支持按名字挑选。
 
@@ -215,3 +217,4 @@ npx skills update
 | 名字 | 干什么用 | 单独安装 |
 |---|---|---|
 | `image-to-editable-diagram` | 把架构图/流程图/时序图等参考图转成可编辑的 HTML+SVG、Mermaid、PPTX、draw.io | `npx skills add lvxiaohai99/skills@image-to-editable-diagram -g -a cursor -y` |
+| `web-to-markdown` | 把一篇或多篇网络文章（公众号、CSDN 等）抓成带图的本地 md，再整理成干净的标准文档 | `npx skills add lvxiaohai99/skills@web-to-markdown -g -a cursor -y` |
