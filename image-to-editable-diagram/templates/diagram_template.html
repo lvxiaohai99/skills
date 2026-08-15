@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+  单文件架构图骨架。复制本文件后按需修改：
+  1. 改 .canvas 的 width/height 为原图比例（如 1520x1160）。
+  2. 在 <svg class="wires"> 的 <defs> 里为每种颜色定义箭头 marker。
+  3. 用绝对定位放置 .box / .dashed-group / .solid-group。
+  4. 用 <path>/<line> 画连线，marker-end 指向对应箭头。
+  5. 底部放 .legend 图例。
+  连线技巧、坐标对齐见 references/html_svg_guide.md。
+-->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>架构图</title>
+<style>
+  /* 可 <link> templates/diagram_styles.css，或把其内容内联到此处（交付单文件时内联） */
+  :root{
+    --ink:#1f2937;--muted:#6b7280;--line:#555;--bg:#fff;
+    --c-blue:#2563eb;--c-green:#16a34a;--c-orange:#ea580c;--c-red:#dc2626;--c-purple:#7c3aed;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei","PingFang SC","Segoe UI",Arial,sans-serif;}
+  body{background:#eef1f5;display:flex;justify-content:center;padding:30px;}
+  .canvas{position:relative;background:#fff;border-radius:14px;box-shadow:0 6px 30px rgba(0,0,0,.1);}
+  .title{position:absolute;top:16px;left:0;width:100%;text-align:center;font-size:22px;color:#111827;}
+  .box{position:absolute;border-radius:8px;border:2px solid var(--ink);background:#fff;display:flex;
+       flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;
+       line-height:1.45;padding:6px 8px;}
+  .box .sub{font-size:11px;color:var(--muted);}
+  .dashed-group{position:absolute;border:2px dashed #94a3b8;border-radius:12px;}
+  .solid-group{position:absolute;border:2px solid #6b7280;border-radius:10px;background:#fafafa;}
+  .group-title{position:absolute;font-weight:700;font-size:14px;}
+  .legend{position:absolute;font-size:12px;color:#374151;line-height:1.9;}
+  .legend .sw{display:inline-block;width:34px;height:0;vertical-align:middle;margin-right:8px;}
+  svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="canvas" style="width:1200px;height:800px;">
+  <div class="title">图表标题（100% 抄录原图）</div>
+
+  <!-- 连线层：先声明箭头 marker，再画线 -->
+  <svg class="wires" viewBox="0 0 1200 800">
+    <defs>
+      <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+        <polygon points="0 0,9 3.5,0 7" fill="var(--line)"/>
+      </marker>
+      <marker id="arrow-blue" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+        <polygon points="0 0,9 3.5,0 7" fill="#2563eb"/>
+      </marker>
+    </defs>
+
+    <!-- 示例：A → B 实线 -->
+    <path d="M260,120 H360" stroke="var(--line)" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+    <text x="270" y="112" font-size="11" font-weight="600" fill="var(--line)">连线标签</text>
+    <!-- 示例：虚线（预留/逻辑关系） -->
+    <path d="M260,220 H360" stroke="#2563eb" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arrow-blue)"/>
+  </svg>
+
+  <!-- 节点：绝对定位 -->
+  <div class="box" style="left:60px;top:90px;width:200px;height:60px;">模块 A</div>
+  <div class="box" style="left:360px;top:90px;width:200px;height:60px;">模块 B<span class="sub">(补充说明)</span></div>
+
+  <!-- 分组容器 -->
+  <div class="dashed-group" style="left:40px;top:300px;width:520px;height:200px;"></div>
+  <div class="group-title" style="left:56px;top:312px;">分组标题</div>
+
+  <!-- 图例 -->
+  <div class="legend" style="left:40px;top:720px;">
+    <b>图例：</b>
+    <span class="sw" style="border-top:3px solid var(--line);"></span>实线通道
+    <span class="sw" style="border-top:3px dashed #2563eb;"></span>预留/虚线通道
+  </div>
+</div>
+</body>
+</html>

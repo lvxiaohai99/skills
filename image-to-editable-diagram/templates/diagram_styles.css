@@ -1,0 +1,107 @@
+/* ============================================================
+   架构图 / 流程图 常用组件样式
+   配合 references/html_svg_guide.md 使用。
+   通过修改 :root 变量即可整体换色。
+   ============================================================ */
+
+:root {
+  --ink:      #1f2937;   /* 主文字 */
+  --muted:    #6b7280;   /* 次要说明文字 */
+  --line:     #555555;   /* 默认连线 */
+  --bg:       #ffffff;
+
+  /* 通道 / 分类配色（按需增删） */
+  --c-blue:   #2563eb;
+  --c-green:  #16a34a;
+  --c-orange: #ea580c;
+  --c-red:    #dc2626;
+  --c-purple: #7c3aed;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+  background: #eef1f5;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+/* 画布：所有元素绝对定位于此，尺寸对应原图比例 */
+.canvas {
+  position: relative;
+  background: var(--bg);
+  border-radius: 14px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, .1);
+}
+
+.title {
+  position: absolute; top: 16px; left: 0; width: 100%;
+  text-align: center; font-size: 22px; color: #111827;
+}
+
+/* ---------- 盒子 ---------- */
+.box {
+  position: absolute;
+  border-radius: 8px;
+  border: 2px solid var(--ink);
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  font-size: 13px; line-height: 1.45;
+  padding: 6px 8px;
+}
+.box .sub { font-size: 11px; color: var(--muted); }          /* 括号补充说明 */
+.box .icon { font-size: 30px; margin-bottom: 4px; }
+
+/* 分类描边 + 浅底（配合 style="border-color:var(--c-xxx)" 或直接用这些类） */
+.accent-blue   { border-color: var(--c-blue);   background: #eff6ff; color: #1e3a8a; }
+.accent-green  { border-color: var(--c-green);  background: #f0fdf4; color: #166534; }
+.accent-orange { border-color: var(--c-orange); background: #fff7ed; color: #9a3412; }
+.accent-red    { border-color: var(--c-red);    background: #fef2f2; color: #7f1d1d; }
+.accent-purple { border-color: var(--c-purple); background: #f5f3ff; color: #5b21b6; }
+
+/* ---------- 虚线分组容器 ---------- */
+.dashed-group {
+  position: absolute;
+  border: 2px dashed #94a3b8;
+  border-radius: 12px;
+  background: rgba(148, 163, 184, .04);
+}
+.dashed-group.blue { border-color: var(--c-blue);  background: rgba(37, 99, 235, .03); }
+.dashed-group.red  { border-color: var(--c-red);   background: rgba(220, 38, 38, .03); }
+
+/* 实线分组容器 */
+.solid-group {
+  position: absolute;
+  border: 2px solid #6b7280;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+/* 分组标题（浮于容器左上或顶部） */
+.group-title { position: absolute; font-weight: 700; font-size: 14px; }
+
+/* ---------- 目录树 / 代码块 ---------- */
+.tree {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 11px; color: #166534;
+  text-align: left; white-space: pre; line-height: 1.5;
+}
+
+/* ---------- 图例 ---------- */
+.legend { position: absolute; font-size: 12px; color: #374151; line-height: 1.9; }
+.legend b { font-size: 13px; color: #111827; }
+.legend li { list-style: none; }
+.legend .sw {                 /* 色样：实线用 solid，虚线用 dashed */
+  display: inline-block; width: 34px; height: 0;
+  vertical-align: middle; margin-right: 8px;
+}
+
+/* ---------- SVG 连线 ---------- */
+svg.wires { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.wire        { stroke: var(--line); stroke-width: 2; fill: none; }
+.wire-dashed { stroke: var(--line); stroke-width: 2; fill: none; stroke-dasharray: 7 5; }
+.wire-label  { font-size: 11px; font-weight: 600; fill: var(--line); }

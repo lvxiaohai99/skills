@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Skill 运行中间产物（不要提交）
+**/_zoom/
+**/.tmp/
+
+# 测试区：保留目录结构，忽略跑出来的结果与临时放大图
+test/**/outputs/**
+!test/**/outputs/.gitkeep
+test/**/inputs/_zoom/
