@@ -20,3 +20,6 @@ Thumbs.db
 test/**/outputs/**
 !test/**/outputs/.gitkeep
 test/**/inputs/_zoom/
+
+# 测试区：真实候选人 PDF（含个人信息）只放本机，不入库
+test/interview/inputs/*.pdf
