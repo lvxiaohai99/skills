@@ -221,4 +221,4 @@ npx skills update
 |---|---|---|
 | `image-to-editable-diagram` | 把架构图/流程图/时序图等参考图转成可编辑的 HTML+SVG、Mermaid、PPTX、draw.io | `npx skills add lvxiaohai99/skills@image-to-editable-diagram -g -a cursor -y` |
 | `web-to-markdown` | 把一篇或多篇网络文章（公众号、CSDN 等）抓成带图的本地 md，再整理成干净的标准文档 | `npx skills add lvxiaohai99/skills@web-to-markdown -g -a cursor -y` |
-| `interview` | 根据简历整理技术画像，并生成绑定经历的一面/二面面试题 | `npx skills add lvxiaohai99/skills@interview -g -a cursor -y` |
+| `interview` | 根据简历整理技术画像，生成绑定经历的一面/二面题，并附参考答案与评分口径供对照 | `npx skills add lvxiaohai99/skills@interview -g -a cursor -y` |
