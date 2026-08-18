@@ -38,6 +38,20 @@ skills/                              ← 这就是当前仓库
 │   ├── SKILL.md
 │   ├── scripts/
 │   └── references/
+├── prd-to-design/                   ← skill 4：PRD → 功能需求表 → 概要设计（模板可指定）
+│   ├── SKILL.md
+│   ├── scripts/
+│   ├── templates/
+│   └── references/
+├── code-detailed-design-report/     ← skill 5：按代码 + Word 模板生成详细设计（docx + mermaid md）
+│   ├── SKILL.md
+│   ├── scripts/
+│   └── references/
+├── code-overview-design-report/     ← skill 6：按代码 + 模板生成概要设计（docx + mermaid md）
+│   ├── SKILL.md
+│   ├── scripts/
+│   ├── templates/
+│   └── references/
 └── mihomo-proxy-setup/              ← 待迁入示例
     └── SKILL.md
 ```
@@ -222,3 +236,6 @@ npx skills update
 | `image-to-editable-diagram` | 把架构图/流程图/时序图等参考图转成可编辑的 HTML+SVG、Mermaid、PPTX、draw.io | `npx skills add lvxiaohai99/skills@image-to-editable-diagram -g -a cursor -y` |
 | `web-to-markdown` | 把一篇或多篇网络文章（公众号、CSDN 等）抓成带图的本地 md，再整理成干净的标准文档 | `npx skills add lvxiaohai99/skills@web-to-markdown -g -a cursor -y` |
 | `interview` | 根据简历整理技术画像，生成绑定经历的一面/二面题，并附参考答案与评分口径供对照 | `npx skills add lvxiaohai99/skills@interview -g -a cursor -y` |
+| `prd-to-design` | 根据 PRD 整理面向研发的功能需求表并写概要设计；内置 default/ivi 模板，也可指定自己的 Markdown 骨架 | `npx skills add lvxiaohai99/skills@prd-to-design -g -a cursor -y` |
+| `code-detailed-design-report` | 根据指定代码 + Word 模板生成详细设计报告（docx 跟版式，md 含 mermaid） | `npx skills add lvxiaohai99/skills@code-detailed-design-report -g -a cursor -y` |
+| `code-overview-design-report` | 根据指定代码 + 模板生成概要设计报告（停在模块/接口/主路径，不写函数级详设） | `npx skills add lvxiaohai99/skills@code-overview-design-report -g -a cursor -y` |
